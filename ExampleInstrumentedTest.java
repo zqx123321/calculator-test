@@ -26,6 +26,7 @@ import java.io.UnsupportedEncodingException;
 import static android.content.Context.MODE_PRIVATE;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isAssignableFrom;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
@@ -49,7 +50,7 @@ public class ExampleInstrumentedTest {
 
 
     @Test
-    public void Test1() throws InterruptedException, IOException {
+    public void Test() throws InterruptedException, IOException {
         Context appContext = InstrumentationRegistry.getTargetContext();
         InputStream inputStreamData = appContext.getResources().openRawResource(R.raw.testdata);
         String[] testdata = getString(inputStreamData).split("\n");
@@ -106,6 +107,8 @@ public class ExampleInstrumentedTest {
             case "C":onView(withId(R.id.BtnC)).perform(click());break;
             case "±":onView(withId(R.id.BtnSign)).perform(click());break;
             case "1/x":onView(withId(R.id.BtnReciprocal)).perform(click());break;
+            case "√":onView(withId(R.id.BtnRooting)).perform(click());break;
+            case "←":onView(withId(R.id.BtnBack)).perform(click());break;
             default:break;
         }
     }
